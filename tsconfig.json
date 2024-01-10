@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "ESNext"
+        ],
+        "types": ["node"],
+        "useDefineForClassFields": true,
+        "strict": true,
+        "module": "commonjs",
+        "alwaysStrict": true,
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "isolatedModules": false,
+        "target": "ESNext",
+        "outDir": "./dist",
+        "rootDir": "./",
+        "allowSyntheticDefaultImports": true,
+        "strictPropertyInitialization": false,
+        "resolveJsonModule": true
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "./"
+    ]
+}
