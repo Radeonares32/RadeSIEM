@@ -6,12 +6,18 @@ const tcpTracker = new TCPTracker()
 
 var destIpv4Object:ILogger[] = []
 
+session.on("data",async (raw_packet)=>{
+  console.log(raw_packet)
+})
+
 session.on('packet',async (raw_packet)=>{ 
     const data = await decode.packet(await raw_packet)
     setTimeout(async ()=>{
     try {
      const destIpv4:any[] = await data.payload.payload.daddr.addr
      const srcIpv4:any[] = await data.payload.payload.saddr.addr
+     const port = await data.payload
+     console.log(port)
      await log([
       {
       sAddr:srcIpv4.join('.').toString(),
