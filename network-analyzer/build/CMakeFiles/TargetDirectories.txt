@@ -1,0 +1,3 @@
+/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/build/CMakeFiles/Network-Analyzer.dir
+/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/build/CMakeFiles/edit_cache.dir
+/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/build/CMakeFiles/rebuild_cache.dir
