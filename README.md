@@ -1,6 +1,6 @@
-## RadeSIEM
+# RadeSIEM
 
-## Build
+# Build
 
-# cmake -S . -B build
-# cmake --build build
+## cmake -S . -B build
+## cmake --build build
