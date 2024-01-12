@@ -7,9 +7,10 @@
 
 
 int main() {
- pcpp::PcapLiveDevice* srv = server("192.168.1.102"); 
+ NetworkAnalyzer network;
+ auto dev = network.server("192.168.1.102");
 
- std::cout<< srv->getName() << std::endl;
-
+ std::cout<< dev->getDefaultGateway() << std::endl;
+  
  return 0; 
 }
