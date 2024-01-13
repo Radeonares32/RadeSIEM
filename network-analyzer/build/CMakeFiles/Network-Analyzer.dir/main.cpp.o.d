@@ -1,7 +1,7 @@
-CMakeFiles/Network-Analyzer.dir/header/network.cpp.o: \
- /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/header/network.cpp \
+CMakeFiles/Network-Analyzer.dir/main.cpp.o: \
+ /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/main.cpp \
  /usr/include/stdc-predef.h \
- /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/header/network.h \
+ /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/network/network.h \
  /usr/local/include/pcapplusplus/PcapDevice.h \
  /usr/local/include/pcapplusplus/Device.h \
  /usr/local/include/pcapplusplus/PointerVector.h /usr/include/stdio.h \
@@ -197,4 +197,4 @@ CMakeFiles/Network-Analyzer.dir/header/network.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_map.h \
  /usr/include/c++/13.2.1/bits/stl_multimap.h \
  /usr/include/c++/13.2.1/bits/erase_if.h /usr/include/c++/13.2.1/iostream \
- /usr/local/include/pcapplusplus/Packet.h
+ /usr/include/c++/13.2.1/sstream /usr/include/c++/13.2.1/bits/sstream.tcc

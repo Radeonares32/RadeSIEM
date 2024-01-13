@@ -129,53 +129,53 @@ Network-Analyzer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/build
 .PHONY : Network-Analyzer/fast
 
-header/network.o: header/network.cpp.o
-.PHONY : header/network.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-header/network.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/header/network.cpp.o
-.PHONY : header/network.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-header/network.i: header/network.cpp.i
-.PHONY : header/network.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-header/network.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/header/network.cpp.i
-.PHONY : header/network.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-header/network.s: header/network.cpp.s
-.PHONY : header/network.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-header/network.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/header/network.cpp.s
-.PHONY : header/network.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/main.cpp.s
+.PHONY : main.cpp.s
 
-rade_network.o: rade_network.cpp.o
-.PHONY : rade_network.o
+network/network.o: network/network.cpp.o
+.PHONY : network/network.o
 
 # target to build an object file
-rade_network.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o
-.PHONY : rade_network.cpp.o
+network/network.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/network/network.cpp.o
+.PHONY : network/network.cpp.o
 
-rade_network.i: rade_network.cpp.i
-.PHONY : rade_network.i
+network/network.i: network/network.cpp.i
+.PHONY : network/network.i
 
 # target to preprocess a source file
-rade_network.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/rade_network.cpp.i
-.PHONY : rade_network.cpp.i
+network/network.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/network/network.cpp.i
+.PHONY : network/network.cpp.i
 
-rade_network.s: rade_network.cpp.s
-.PHONY : rade_network.s
+network/network.s: network/network.cpp.s
+.PHONY : network/network.s
 
 # target to generate assembly for a file
-rade_network.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/rade_network.cpp.s
-.PHONY : rade_network.cpp.s
+network/network.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Network-Analyzer.dir/build.make CMakeFiles/Network-Analyzer.dir/network/network.cpp.s
+.PHONY : network/network.cpp.s
 
 # Help Target
 help:
@@ -186,12 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Network-Analyzer"
-	@echo "... header/network.o"
-	@echo "... header/network.i"
-	@echo "... header/network.s"
-	@echo "... rade_network.o"
-	@echo "... rade_network.i"
-	@echo "... rade_network.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... network/network.o"
+	@echo "... network/network.i"
+	@echo "... network/network.s"
 .PHONY : help
 
 

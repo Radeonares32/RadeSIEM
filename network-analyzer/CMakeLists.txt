@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_EXTENSIONS ON)
 
 add_executable("${PROJECT_NAME}" 
-  ./header/network.cpp
-  ./rade_network.cpp
+  ./network/network.cpp
+  ./main.cpp
   )
 
 

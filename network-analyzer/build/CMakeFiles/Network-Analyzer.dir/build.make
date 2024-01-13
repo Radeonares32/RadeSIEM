@@ -69,44 +69,44 @@ include CMakeFiles/Network-Analyzer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Network-Analyzer.dir/flags.make
 
-CMakeFiles/Network-Analyzer.dir/header/network.cpp.o: CMakeFiles/Network-Analyzer.dir/flags.make
-CMakeFiles/Network-Analyzer.dir/header/network.cpp.o: /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/header/network.cpp
-CMakeFiles/Network-Analyzer.dir/header/network.cpp.o: CMakeFiles/Network-Analyzer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Network-Analyzer.dir/header/network.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Network-Analyzer.dir/header/network.cpp.o -MF CMakeFiles/Network-Analyzer.dir/header/network.cpp.o.d -o CMakeFiles/Network-Analyzer.dir/header/network.cpp.o -c /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/header/network.cpp
+CMakeFiles/Network-Analyzer.dir/network/network.cpp.o: CMakeFiles/Network-Analyzer.dir/flags.make
+CMakeFiles/Network-Analyzer.dir/network/network.cpp.o: /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/network/network.cpp
+CMakeFiles/Network-Analyzer.dir/network/network.cpp.o: CMakeFiles/Network-Analyzer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Network-Analyzer.dir/network/network.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Network-Analyzer.dir/network/network.cpp.o -MF CMakeFiles/Network-Analyzer.dir/network/network.cpp.o.d -o CMakeFiles/Network-Analyzer.dir/network/network.cpp.o -c /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/network/network.cpp
 
-CMakeFiles/Network-Analyzer.dir/header/network.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Network-Analyzer.dir/header/network.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/header/network.cpp > CMakeFiles/Network-Analyzer.dir/header/network.cpp.i
+CMakeFiles/Network-Analyzer.dir/network/network.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Network-Analyzer.dir/network/network.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/network/network.cpp > CMakeFiles/Network-Analyzer.dir/network/network.cpp.i
 
-CMakeFiles/Network-Analyzer.dir/header/network.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Network-Analyzer.dir/header/network.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/header/network.cpp -o CMakeFiles/Network-Analyzer.dir/header/network.cpp.s
+CMakeFiles/Network-Analyzer.dir/network/network.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Network-Analyzer.dir/network/network.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/network/network.cpp -o CMakeFiles/Network-Analyzer.dir/network/network.cpp.s
 
-CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o: CMakeFiles/Network-Analyzer.dir/flags.make
-CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o: /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/rade_network.cpp
-CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o: CMakeFiles/Network-Analyzer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o -MF CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o.d -o CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o -c /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/rade_network.cpp
+CMakeFiles/Network-Analyzer.dir/main.cpp.o: CMakeFiles/Network-Analyzer.dir/flags.make
+CMakeFiles/Network-Analyzer.dir/main.cpp.o: /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/main.cpp
+CMakeFiles/Network-Analyzer.dir/main.cpp.o: CMakeFiles/Network-Analyzer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Network-Analyzer.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Network-Analyzer.dir/main.cpp.o -MF CMakeFiles/Network-Analyzer.dir/main.cpp.o.d -o CMakeFiles/Network-Analyzer.dir/main.cpp.o -c /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/main.cpp
 
-CMakeFiles/Network-Analyzer.dir/rade_network.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Network-Analyzer.dir/rade_network.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/rade_network.cpp > CMakeFiles/Network-Analyzer.dir/rade_network.cpp.i
+CMakeFiles/Network-Analyzer.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Network-Analyzer.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/main.cpp > CMakeFiles/Network-Analyzer.dir/main.cpp.i
 
-CMakeFiles/Network-Analyzer.dir/rade_network.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Network-Analyzer.dir/rade_network.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/rade_network.cpp -o CMakeFiles/Network-Analyzer.dir/rade_network.cpp.s
+CMakeFiles/Network-Analyzer.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Network-Analyzer.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/main.cpp -o CMakeFiles/Network-Analyzer.dir/main.cpp.s
 
 # Object files for target Network-Analyzer
 Network__Analyzer_OBJECTS = \
-"CMakeFiles/Network-Analyzer.dir/header/network.cpp.o" \
-"CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o"
+"CMakeFiles/Network-Analyzer.dir/network/network.cpp.o" \
+"CMakeFiles/Network-Analyzer.dir/main.cpp.o"
 
 # External object files for target Network-Analyzer
 Network__Analyzer_EXTERNAL_OBJECTS =
 
-/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/Network-Analyzer: CMakeFiles/Network-Analyzer.dir/header/network.cpp.o
-/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/Network-Analyzer: CMakeFiles/Network-Analyzer.dir/rade_network.cpp.o
+/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/Network-Analyzer: CMakeFiles/Network-Analyzer.dir/network/network.cpp.o
+/home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/Network-Analyzer: CMakeFiles/Network-Analyzer.dir/main.cpp.o
 /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/Network-Analyzer: CMakeFiles/Network-Analyzer.dir/build.make
 /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/Network-Analyzer: /usr/local/lib/libPcap++.a
 /home/radeonares/Project/Jobs/RadeSIEM/network-analyzer/Network-Analyzer: /usr/local/lib/libPacket++.a
