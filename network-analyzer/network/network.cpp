@@ -1,4 +1,6 @@
 #include "network.h"
+#include <cstddef>
+#include <nlohmann/json_fwd.hpp>
 #include <pcapplusplus/Packet.h>
 #include <pcapplusplus/PcapDevice.h>
 #include <pcapplusplus/PcapLiveDevice.h>
@@ -9,7 +11,12 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
+#include <nlohmann/json.hpp>
 
+using json = nlohmann::json;
+
+json data = {};
 
 struct NetworkAnalyzer::PacketInfo {
   std::string packetLength;
@@ -23,6 +30,54 @@ struct NetworkAnalyzer::PacketInfo {
   std::string tDstPort;
 };
 
+
+std::vector<std::string> splitString(const std::string& input, char delimiter) {
+    std::vector<std::string> result;
+
+    size_t start = 0, end = input.find(delimiter);
+
+    while (end != std::string::npos) {
+        std::string token = input.substr(start, end - start);
+
+        size_t firstNonSpace = token.find_first_not_of(" \t\n\v\f\r");
+        size_t lastNonSpace = token.find_last_not_of(" \t\n\v\f\r");
+
+        if (firstNonSpace != std::string::npos && lastNonSpace != std::string::npos) {
+            size_t prefixPos = token.find("Dst:");
+            if (prefixPos != std::string::npos) {
+                token.erase(prefixPos, 4);            }
+
+            size_t firstNonSpace = token.find_first_not_of(" \t\n\v\f\r");
+            size_t lastNonSpace = token.find_last_not_of(" \t\n\v\f\r");
+
+            result.push_back(token.substr(firstNonSpace, lastNonSpace - firstNonSpace + 1));
+        }
+
+        start = end + 1;
+        end = input.find(delimiter, start);
+    }
+
+    std::string lastToken = input.substr(start);
+
+    size_t firstNonSpace = lastToken.find_first_not_of(" \t\n\v\f\r");
+    size_t lastNonSpace = lastToken.find_last_not_of(" \t\n\v\f\r");
+
+    if (firstNonSpace != std::string::npos && lastNonSpace != std::string::npos) {
+        size_t prefixPos = lastToken.find("Dst:");
+        if (prefixPos != std::string::npos) {
+            lastToken.erase(prefixPos, 4); 
+        }
+
+        size_t firstNonSpace = lastToken.find_first_not_of(" \t\n\v\f\r");
+        size_t lastNonSpace = lastToken.find_last_not_of(" \t\n\v\f\r");
+
+        result.push_back(lastToken.substr(firstNonSpace, lastNonSpace - firstNonSpace + 1));
+    }
+
+    return result;
+}
+
+
 struct NetworkAnalyzer::PacketStats {
     int ethPacketCount;
     int ipv4PacketCount;
@@ -32,6 +87,7 @@ struct NetworkAnalyzer::PacketStats {
     int dnsPacketCount;
     int httpPacketCount;
     int sslPacketCount;
+    
 
     void clear() { ethPacketCount = 0; ipv4PacketCount = 0; ipv6PacketCount = 0; tcpPacketCount = 0; udpPacketCount = 0; tcpPacketCount = 0; dnsPacketCount = 0; httpPacketCount = 0; sslPacketCount = 0; }
 
@@ -53,17 +109,25 @@ struct NetworkAnalyzer::PacketStats {
 
           std::string key, value;
 
-          std::getline(lineStream,key, ',');
+          std::getline(lineStream,key, ':');
           std::getline(lineStream, value); 
+         
+          std::cout<<key<<std::endl;
           
           if(key.find("Packet length") != std::string::npos) {
-            info.packetLength = value;
+              std::cout<<"Here1"<<std::endl;
+              std::cout<<value<<std::endl;
           }
           else if(key.find("Arrival time") != std::string::npos) {
-            info.arrivalTime = value;
+            std::cout<<"here1"<<std::endl; 
+            std::cout<<value<<std::endl;
           }
           else if(key.find("Ethernet II Layer") != std::string::npos) {
-            std::cout<<"Ethernet falan filan "<<value<<std::endl;
+            std::vector<std::string> splitData = splitString(value,',');
+            data["srcMac"] = splitData[0];
+            data["destMac"] = splitData[1];
+            
+            
           }
 
         }
@@ -85,10 +149,8 @@ struct NetworkAnalyzer::PacketStats {
         if (packet.isPacketOfType(pcpp::SSL))
             sslPacketCount++;
  
- }
+ }  
 };
-
-
 
 pcpp::PcapLiveDevice* NetworkAnalyzer::server(std::string interface) {
   pcpp::PcapLiveDevice* dev = pcpp::PcapLiveDeviceList::getInstance().getPcapLiveDeviceByIpOrName(interface);
@@ -104,7 +166,9 @@ bool NetworkAnalyzer::PacketHandler(pcpp::RawPacket* rawPacket,pcpp::PcapLiveDev
 
   stats->consumePacket(parsedPacket);
 
-  std::cout<<parsedPacket.toString()<<std::endl;
+ 
+  //std::cout<<parsedPacket.toString()<<std::endl;
+  //std::cout<<data.dump(4)<<std::endl;
   return false;
 }
 
@@ -121,4 +185,3 @@ void NetworkAnalyzer::openServer(std::string interfaceDevice) {
  pcapDevice->close();
  
 }
-

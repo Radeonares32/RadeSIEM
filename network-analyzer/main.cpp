@@ -1,8 +1,8 @@
 #include "network/network.h"
 
-int main() {
+ int main() {
  NetworkAnalyzer network;
 
  network.openServer("wlo1");
- 
+  
 }

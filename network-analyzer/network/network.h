@@ -1,5 +1,6 @@
 #pragma once
 
+#include <nlohmann/json_fwd.hpp>
 #include <pcapplusplus/PcapDevice.h>
 #include <pcapplusplus/PcapLiveDevice.h>
 #include <pcapplusplus/PcapLiveDeviceList.h>
@@ -19,4 +20,5 @@ class NetworkAnalyzer {
     pcpp::PcapLiveDevice* server(std::string interface);
     static bool PacketHandler(pcpp::RawPacket* packet,pcpp::PcapLiveDevice* dev, void* cookie);
     void openServer(std::string interfaceDevice);
+    static nlohmann::json Data();
 };
