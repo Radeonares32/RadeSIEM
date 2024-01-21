@@ -15,7 +15,6 @@
 
 class NetworkAnalyzer {
   public:
-    struct PacketInfo;
     struct PacketStats;
     pcpp::PcapLiveDevice* server(std::string interface);
     static bool PacketHandler(pcpp::RawPacket* packet,pcpp::PcapLiveDevice* dev, void* cookie);

@@ -7,9 +7,10 @@
 #include <pcapplusplus/PcapLiveDeviceList.h>
 #include <pcapplusplus/PcapFileDevice.h>
 #include <pcapplusplus/RawPacket.h>
+#include <pcapplusplus/EthLayer.h>
+#include <pcapplusplus/IPv4Layer.h>
 #include <pcapplusplus/SystemUtils.h>
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <vector>
 #include <nlohmann/json.hpp>
@@ -18,17 +19,6 @@ using json = nlohmann::json;
 
 json data = {};
 
-struct NetworkAnalyzer::PacketInfo {
-  std::string packetLength;
-  std::string arrivalTime;
-  std::string ethernetSrc;
-  std::string ethernetDst;
-  std::string ipv4Src;
-  std::string ipv4Dst;
-  std::string tFlags;
-  std::string tSrcPort;
-  std::string tDstPort;
-};
 
 
 std::vector<std::string> splitString(const std::string& input, char delimiter) {
@@ -98,42 +88,9 @@ struct NetworkAnalyzer::PacketStats {
 
         pcpp::Packet parsedPacket(packet);
  
-        std::istringstream iss(parsedPacket.toString());
-  
-        NetworkAnalyzer::PacketInfo info;
-
-        std::string line;
-
-        while(std::getline(iss,line)) {
-          std::istringstream lineStream(line);
-
-          std::string key, value;
-
-          std::getline(lineStream,key, ':');
-          std::getline(lineStream, value); 
-         
-          std::cout<<key<<std::endl;
-          
-          if(key.find("Packet length") != std::string::npos) {
-              std::cout<<"Here1"<<std::endl;
-              std::cout<<value<<std::endl;
-          }
-          else if(key.find("Arrival time") != std::string::npos) {
-            std::cout<<"here1"<<std::endl; 
-            std::cout<<value<<std::endl;
-          }
-          else if(key.find("Ethernet II Layer") != std::string::npos) {
-            std::vector<std::string> splitData = splitString(value,',');
-            data["srcMac"] = splitData[0];
-            data["destMac"] = splitData[1];
-            
-            
-          }
-
-        }
-
-        if (packet.isPacketOfType(pcpp::Ethernet))
+        if (packet.isPacketOfType(pcpp::Ethernet)) {
             ethPacketCount++;
+          }
         if (packet.isPacketOfType(pcpp::IPv4))
             ipv4PacketCount++;
         if (packet.isPacketOfType(pcpp::IPv6))
@@ -165,10 +122,29 @@ bool NetworkAnalyzer::PacketHandler(pcpp::RawPacket* rawPacket,pcpp::PcapLiveDev
   pcpp::Packet parsedPacket(rawPacket);
 
   stats->consumePacket(parsedPacket);
-
  
-  //std::cout<<parsedPacket.toString()<<std::endl;
-  //std::cout<<data.dump(4)<<std::endl;
+  pcpp::EthLayer* ethLayer = parsedPacket.getLayerOfType<pcpp::EthLayer>();
+  pcpp::IPv4Layer* ipv4Layer = parsedPacket.getLayerOfType<pcpp::IPv4Layer>();
+
+
+  std::cout<<parsedPacket.toString()<<std::endl;
+
+  //Ethernet Layer
+  
+  data["ethernet"]["sourceMac"] = ethLayer->getSourceMac().toString();
+  data["ethernet"]["destMac"] = ethLayer->getDestMac().toString();
+  data["ethernet"]["etherType"] = std::to_string(pcpp::netToHost16(ethLayer->getEthHeader()->etherType));
+  data["ethernet"]["etherTest"];
+  std::cout<<data.dump(4)<<std::endl;
+ 
+  //Ipv4 Layer
+  
+  if(ipv4Layer != NULL) {
+    data["ipv4"]["sourceIpAddr"] = ipv4Layer->getSrcIPAddress().toString();
+    data["ipv4"]["destIpAddr"] = ipv4Layer->getDstIPAddress().toString(); 
+  }
+
+
   return false;
 }
 
@@ -178,7 +154,9 @@ void NetworkAnalyzer::openServer(std::string interfaceDevice) {
  pcpp::PcapLiveDevice* pcapDevice = server(interfaceDevice);
  pcapDevice->open();
 
- pcapDevice->startCaptureBlockingMode(PacketHandler,&stats,-1);
+  std::cout<<data.dump(4)<<std::endl;
+ 
+  pcapDevice->startCaptureBlockingMode(PacketHandler,&stats,-1);
 
  pcpp::multiPlatformSleep(10);
  

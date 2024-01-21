@@ -1,16 +1,20 @@
 cmake_minimum_required(VERSION 3.12)
 project(Network-Analyzer)
 
-# Set C++11
-set(CMAKE_CXX_STANDARD 11)
+# Set C++20
+set(CMAKE_CXX_STANDARD 20)
 # popen()/pclose() are not C++ standards
 set(CMAKE_CXX_EXTENSIONS ON)
 
 add_executable("${PROJECT_NAME}" 
   ./network/network.cpp
+  ./service/network.service.cpp
   ./main.cpp
   )
 
+
+find_package(protobuf CONFIG REQUIRED)
+target_link_libraries(${PROJECT_NAME} PUBLIC protobuf::libprotobuf)
 
 if(NOT TARGET PcapPlusPlus::Pcap++)
   message("Compiling Tutorial out of project")
